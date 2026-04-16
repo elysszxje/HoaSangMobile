@@ -1,0 +1,54 @@
+.area_order {
+    display: block;
+    overflow: hidden;
+    margin: 15px 10px;
+}
+
+/* Áp dụng cho cả button và a */
+.area_order .buy_now {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+
+    border: none;
+    outline: none;
+
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff8a00, #fd6e1d);
+
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
+    transition: all 0.25s ease;
+}
+
+.area_order .buy_now:hover {
+    background: linear-gradient(135deg, #fd6e1d, #ff8a00);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 111, 0, 0.4);
+}
+
+.area_order .buy_now:active {
+    transform: scale(0.96);
+    box-shadow: 0 3px 7px rgba(255, 111, 0, 0.35);
+}
+
+/* Icon đẹp hơn */
+.area_order .buy_now i {
+    margin-right: 6px;
+    font-size: 18px;
+}
+
+/* Text phụ nếu có */
+.area_order .buy_now p {
+    display: block;
+    font-size: 13px;
+    margin: 3px 0 0;
+    opacity: 0.9;
+}

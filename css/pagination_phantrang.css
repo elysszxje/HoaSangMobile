@@ -1,0 +1,55 @@
+/* General pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for individual pagination links */
+.pagination a {
+    color: #007bff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for pagination links */
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Style for the active page */
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+/* Style for "first" and "last" links */
+.pagination a:first-child, .pagination a:last-child {
+    font-weight: bold;
+}
+
+/* Add spacing between the page numbers and arrows */
+.pagination a {
+    margin: 0 5px;
+}
+
+/* Style for "Prev" and "Next" buttons */
+.pagination a:first-child, .pagination a:last-child {
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+/* Style for the "arrow" navigation buttons */
+.pagination a:focus {
+    outline: none;
+    box-shadow: none;
+}

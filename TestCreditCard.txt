@@ -1,0 +1,16 @@
+Bước 3: Nhập thông tin thẻ giả lập
+Bạn nhập chính xác các thông tin thẻ test mặc định của VNPAY Sandbox như sau:
+
+Số thẻ: 9704198526191432198
+
+Tên chủ thẻ: NGUYEN VAN A (nhập không dấu)
+
+Ngày phát hành: 07/15
+
+Bước 4: Xác nhận OTP
+
+Nhấn nút Thanh toán / Tiếp tục.
+
+Trang web sẽ chuyển sang giao diện nhập mã OTP. Bạn nhập mã OTP test mặc định là: 123456
+
+Nhấn Xác nhận
