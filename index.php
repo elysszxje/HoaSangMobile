@@ -321,7 +321,7 @@ $banners = $bannerStmt->fetchAll(PDO::FETCH_ASSOC);
 						</li>
 					<?php endforeach; ?>
 				</div>
-				<a class="xemTatCa" href="index.php?filter=all" style="border-left: 2px solid #28a745; border-right: 2px solid #28a745;">
+				<a class="xemTatCa" href="products.php" style="border-left: 2px solid #28a745; border-right: 2px solid #28a745;">
 					Xem thêm
 				</a>
 			</div>

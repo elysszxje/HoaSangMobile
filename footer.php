@@ -2,8 +2,8 @@
      <span id="closebtn">&otimes;</span>
  </div>
  <div class="copy-right">
-     <p><a href="index.php">HoaSang Store</a> - All rights reserved © 5 - Designed by
-         <span style="color: #eee; font-weight: bold">HoaSang</span>
+     <p><a href="index.php">HoaSang Store</a> - All rights reserved © 2026 - Designed by
+         <span style="color: #eee; font-weight: bold">Trần Phạm Thái Vũ</span>
      </p>
  </div>
 

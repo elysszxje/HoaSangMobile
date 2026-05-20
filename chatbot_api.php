@@ -6,16 +6,25 @@ $inputJSON = file_get_contents('php://input');
 $inputArray = json_decode($inputJSON, true);
 $userMessage = $inputArray['message'] ?? '';
 
+// 1. Kiểm tra xem có nhận được tin nhắn không
 if (empty($userMessage)) {
-    echo json_encode(['reply' => 'Tôi chưa nhận được tin nhắn từ bạn.']);
+    echo json_encode(['reply' => 'Lỗi: Không nhận được tin nhắn từ giao diện.']);
     exit;
 }
 
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . GEMINI_API_KEY;
+// 2. Kiểm tra xem Key có bị trống hay lỗi file env.php không
+if (!defined('GEMINI_API_KEY') || empty(trim(GEMINI_API_KEY))) {
+    echo json_encode(['reply' => 'Lỗi: Chưa có API Key hoặc file env.php cấu hình sai.']);
+    exit;
+}
+
+// ĐÃ SỬA LỖI: Chuyển sang model gemini-pro cực kỳ ổn định
+$model = 'gemini-3.1-flash-lite';
+$url = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key=" . trim(GEMINI_API_KEY);
 
 $payload = [
     "contents" => [
-        ["parts" => [["text" => "Bạn là trợ lý ảo của HoaSang Store. Hãy trả lời ngắn gọn, lịch sự về điện thoại và công nghệ. Khách hỏi: " . $userMessage]]]
+        ["parts" => [["text" => "Bạn là nhân viên tư vấn của HoaSang Store. Khách hỏi: " . $userMessage]]]
     ]
 ];
 
@@ -24,14 +33,26 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-// Bổ sung dòng dưới đây để tắt kiểm tra SSL trên localhost
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 $response = curl_exec($ch);
+$error = curl_error($ch);
 curl_close($ch);
 
-$responseData = json_decode($response, true);
-$botReply = $responseData['candidates'][0]['content']['parts'][0]['text'] ?? "Xin lỗi, tôi đang bận một chút, bạn hỏi lại sau nhé!";
+// 3. Kiểm tra lỗi mất mạng / firewall của XAMPP
+if ($error) {
+    echo json_encode(['reply' => 'Lỗi mạng cURL: ' . $error]);
+    exit;
+}
 
-echo json_encode(['reply' => $botReply]);
+$responseData = json_decode($response, true);
+
+// 4. Bóc tách chính xác câu trả lời
+if (isset($responseData['error'])) {
+    echo json_encode(['reply' => "Lỗi API Google: " . $responseData['error']['message']]);
+} elseif (isset($responseData['candidates'][0]['content']['parts'][0]['text'])) {
+    echo json_encode(['reply' => $responseData['candidates'][0]['content']['parts'][0]['text']]);
+} else {
+    echo json_encode(['reply' => "Lỗi cấu trúc dữ liệu trả về: " . $response]);
+}
 ?>

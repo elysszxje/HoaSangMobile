@@ -117,11 +117,9 @@ $brands = $brandStmt->fetchAll(PDO::FETCH_ASSOC);
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Load font awesome icons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		crossorigin="anonymous">
 
-	<!-- owl carousel libraries -->
 	<link rel="stylesheet" href="js/owlcarousel/owl.carousel.min.css">
 	<link rel="stylesheet" href="js/owlcarousel/owl.theme.default.min.css">
 	<script src="js/Jquery/Jquery.min.js"></script>
@@ -161,13 +159,21 @@ $brands = $brandStmt->fetchAll(PDO::FETCH_ASSOC);
 		<br>
 		<div class="container my-4">
 			<div class="row g-3">
+                
+				<div class="col-4 col-sm-3 col-md-2 col-lg-2">
+					<a href="products.php" class="text-decoration-none d-block brand-item">
+						<div class="card shadow-sm rounded-3 p-2 text-center brand-card <?= ($brand_id === null) ? 'border border-2 border-primary' : 'border-0' ?>">
+							<span class="fw-bold text-dark" style="font-size: 16px;">Tất cả</span>
+						</div>
+					</a>
+				</div>
 
 				<?php foreach ($brands as $brand): ?>
 					<div class="col-4 col-sm-3 col-md-2 col-lg-2">
 						<a href="products.php?brand_id=<?= $brand['id'] ?>"
 							class="text-decoration-none d-block brand-item">
 
-							<div class="card shadow-sm border-0 rounded-3 p-2 text-center brand-card">
+							<div class="card shadow-sm rounded-3 p-2 text-center brand-card <?= ($brand_id == $brand['id']) ? 'border border-2 border-primary' : 'border-0' ?>">
 								<img src="<?= $brand['logo'] ?>"
 									class="img-fluid brand-logo"
 									alt="<?= $brand['name'] ?>">
@@ -261,11 +267,7 @@ $brands = $brandStmt->fetchAll(PDO::FETCH_ASSOC);
 		<br>
 		<br>
 		<hr>
-	</section> <!-- End Section -->
-
-
-
-	<div class="plc">
+	</section> <div class="plc">
 		<section>
 			<ul class="flexContain">
 				<li>Giao hàng hỏa tốc trong 1 giờ</li>

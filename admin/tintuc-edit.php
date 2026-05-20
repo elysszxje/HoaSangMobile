@@ -123,7 +123,7 @@ if (!$blog) {
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="dashboard.php">Trang chủ</a>
+                                        <a href="index.php">Trang chủ</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Cập nhật tin tức
@@ -192,7 +192,12 @@ if (!$blog) {
     <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor
-            .create(document.querySelector('#content'))
+            .create(document.querySelector('#content'), {
+                // Sử dụng CKFinder upload adapter có sẵn trong bản Classic CDN
+                ckfinder: {
+                    uploadUrl: 'upload_image.php'
+                }
+            })
             .catch(error => {
                 console.error(error);
             });
