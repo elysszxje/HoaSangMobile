@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             <div class="lienhe-info">
                 <div class="info-left">
                     <p>
-                    <h2 style="color: gray"> CÔNG TY CỔ PHẦN HoaSang </h2><br />
+                    <h2 style="color: gray"> CÔNG TY TNHH Công nghệ Hoa Sáng </h2><br />
                     <b>Địa chỉ:</b> 109 Cộng Hoà, Phường 12, Tân Bình, TP. Hồ Chí Minh<br /><br />
                     <b>Hotline:</b> 0937940243<br /><br />
                     <b>E-mail:</b> hoasanginfotech@gmail.com<br /><br />

@@ -18,7 +18,7 @@ if (!defined('GEMINI_API_KEY') || empty(trim(GEMINI_API_KEY))) {
     exit;
 }
 
-// ĐÃ SỬA LỖI: Chuyển sang model gemini-pro cực kỳ ổn định
+// ĐÃ SỬA LỖI: Chuyển model gemini mới
 $model = 'gemini-3.1-flash-lite';
 $url = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key=" . trim(GEMINI_API_KEY);
 
