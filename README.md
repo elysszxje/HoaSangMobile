@@ -37,7 +37,7 @@ Dự án được xây dựng dựa trên các công nghệ web:
 
 **Bước 4: Cấu hình kết nối CSDL**
 - Mở thư mục dự án trong Visual Studio Code.
-- Tìm đến file cấu hình kết nối CSDL và cập nhật thông tin:
+- Tìm đến file cấu hình kết nối CSDL (connect.php) và cập nhật thông tin:
   ```php
   $servername = "localhost";
   $username = "root";
@@ -104,7 +104,7 @@ To run the project on your local machine (localhost), you need to install the fo
 
 **Step 4: Configure Database Connection**
 - Open the project folder in Visual Studio Code.
-- Locate the database connection configuration file and update the information:
+- Locate the database connection configuration file (connect.php) and update the information:
   ```php
   $servername = "localhost";
   $username = "root";
